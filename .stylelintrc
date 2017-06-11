@@ -1,0 +1,10 @@
+{
+    "rules": {
+        "indentation": 4,
+        "number-leading-zero": "never"
+    },
+    "extends": [
+        "stylelint-config-standard",
+        "stylelint-config-css-modules"
+    ]
+}

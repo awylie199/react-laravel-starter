@@ -1,0 +1,6 @@
+--colors
+--ui bdd
+--require babel-register
+--require mock-local-storage
+--require ignore-styles
+--require mocha.js

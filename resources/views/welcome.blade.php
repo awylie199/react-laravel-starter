@@ -1,0 +1,1 @@
+@react_component('RLS.App', [], ['prerender' => true, 'tag' => 'main', 'id' => 'react-laravel-starter'])
