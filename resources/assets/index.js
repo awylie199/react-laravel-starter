@@ -1,7 +1,9 @@
+global.RLS = {};
+
 if (typeof window === 'undefined') {
     // Client side rendering
-    require('./client');
+    global.App = require('./client');
 } else {
     // Server side rendering
-    require('./server');
+    global.App = require('./server');
 }

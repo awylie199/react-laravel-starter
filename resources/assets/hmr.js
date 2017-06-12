@@ -3,7 +3,7 @@
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
 import cors from 'cors';
-import config from '../webpack.config.js';
+import config from '../../webpack.config.js';
 
 new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,
