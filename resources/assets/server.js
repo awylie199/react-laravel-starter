@@ -1,15 +1,15 @@
 /* eslint no-console: 0 */
 
+import 'react_ujs';
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {renderToString} from 'react-dom/server';
 import {Provider} from 'react-redux';
 import {StaticRouter} from 'react-router-dom';
-import {Helmet as reactHelmet} from 'react-helmet';
 import Serialize from 'remotedev-serialize';
 import Immutable from 'immutable';
-import setupStore from 'client/store';
-import Container from 'client/containers';
+import setupStore from './store';
+import Container from './containers';
 
 const {stringify} =  Serialize.immutable(Immutable);
 
@@ -24,37 +24,25 @@ export default class App extends Component {
             store = setupStore(),
             html = renderToString(
                 <Provider store={store}>
-                    <StaticRouter location={req.url} context={context}>
+                    <StaticRouter location={url} context={context}>
                         <Container />
                     </StaticRouter>
                 </Provider>
             ),
-            // Call renderStatic to prevent memory leek
-            // @see https://github.com/nfl/react-helmet
-            renderedHelmet = reactHelmet.renderStatic(),
             preloadedState = store.getState();
 
         return (
-            <html {...renderedHelmet.htmlAttributes}>
-                <head>
-                    {...renderedHelmet.title}
-                    {...renderedHelmet.meta}
-                    {...renderedHelmet.link}
-                    {...renderedHelmet.script}
-                </head>
-                <body {...renderedHelmet.bodyAttributes}>
-                    <div
-                        class="root"
-                        id="root"
-                        dangerouslySetInnerHTML={{__html: html}}
-                    >
-                    </div>
-                    <script>
-                        {`window.__PRELOADED_STATE__ = '${stringify(preloadedState)}'`}
-                    </script>
-                    <script src="/bundle.js"></script>
-                </body>
-            </html>
+            <div>
+                <div
+                    className="root"
+                    id="root"
+                    dangerouslySetInnerHTML={{__html: html}}
+                />
+                <script>
+                    {`window.__PRELOADED_STATE__ = '${stringify(preloadedState)}'`}
+                </script>
+                <script src="/bundle.js"></script>
+            </div>
         );
     }
 }

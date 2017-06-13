@@ -12,7 +12,7 @@ export default function setupStore(initialState = {}) {
         promise
     ];
 
-    if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+    if (typeof window !== 'undefined') {
         const history = createHistory();
 
         middleware.push(routerMiddleware(history));

@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {Actions as globalActions} from '../../actions/global';
-import Head from '../global/head';
-import MapContainer from './elements/map';
 
 export class Home extends Component {
     static propTypes = {
@@ -19,8 +17,7 @@ export class Home extends Component {
     render() {
         return (
             <div style={{height: '100%'}}>
-                <Head title="Home" />
-                <MapContainer />
+                <h1>Home</h1>
             </div>
         );
     }

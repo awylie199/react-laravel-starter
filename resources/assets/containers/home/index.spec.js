@@ -31,14 +31,4 @@ describe('Home', () => {
         shallow(<Home {...props} />);
         expect(geoSpy.calledOnce).to.equal(true);
     });
-
-    it('renders a Head component', function() {
-        let home = shallow(<Home {...props} />);
-        expect(home.find('Head')).to.have.length(1);
-    });
-
-    it('renders a MapComponent component', function() {
-        let home = shallow(<Home {...props} />);
-        expect(home.find('Connect(MapContainer)')).to.have.length(1);
-    });
 });
