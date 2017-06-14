@@ -1,4 +1,4 @@
-if (typeof window === 'undefined') {
+if (typeof window !== 'undefined' && typeof document !== 'undefined') {
     // Client side rendering
     require('./client');
 } else {

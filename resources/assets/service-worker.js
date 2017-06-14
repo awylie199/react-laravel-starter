@@ -17,7 +17,7 @@ self.addEventListener('activate', function(event) {
 
 // The first time the user starts up the PWA, 'install' is triggered.
 self.addEventListener('install', function(event) {
-    if (process.env.NODE_ENV !== 'prod') {
+    if (process.env.NODE_ENV !== 'production') {
         event.waitUntil(caches.open(CACHE_NAME).then(function(cache) {
             cache.addAll(global.serviceWorkerOption.assets);
         }));
@@ -27,7 +27,7 @@ self.addEventListener('install', function(event) {
 // When the webpage goes to fetch files, we intercept that request and serve up the matching files
 // if we have them
 self.addEventListener('fetch', function(event) {
-    if (process.env.NODE_ENV !== 'prod') {
+    if (process.env.NODE_ENV !== 'production') {
         event.respondWith(caches.match(event.request).then(function(response) {
             return response || fetch(event.request);
         }));

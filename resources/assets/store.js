@@ -12,19 +12,19 @@ export default function setupStore(initialState = {}) {
         promise
     ];
 
-    if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined' && typeof document !== 'undefined') {
         const history = createHistory();
 
         middleware.push(routerMiddleware(history));
     }
 
-    if (process.env.NODE_ENV !== 'prod') {
-        const createLogger = require('redux-logger');
+    if (process.env.NODE_ENV !== 'production') {
+        const createLogger = require('redux-logger').createLogger;
 
         middleware.push(createLogger());
     }
 
-    if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined' && typeof document !== 'undefined') {
         return createStore(reducer, initialState, composeWithDevTools(
             applyMiddleware(...middleware)
         ));

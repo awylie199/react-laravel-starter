@@ -1,6 +1,5 @@
 /* eslint no-console: 0 */
 
-import 'react_ujs';
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {renderToString} from 'react-dom/server';
@@ -13,7 +12,7 @@ import Container from './containers';
 
 const {stringify} =  Serialize.immutable(Immutable);
 
-export default class App extends Component {
+class App extends Component {
     static propTypes = {
         url: PropTypes.string.isRequired
     }
@@ -38,11 +37,13 @@ export default class App extends Component {
                     id="root"
                     dangerouslySetInnerHTML={{__html: html}}
                 />
-                <script>
-                    {`window.__PRELOADED_STATE__ = '${stringify(preloadedState)}'`}
-                </script>
-                <script src="/bundle.js"></script>
+                <script dangerouslySetInnerHTML={{
+                    __html: `window.__PRELOADED_STATE__ = '${stringify(preloadedState)}'`
+                }} />
+                <script src="/bundle.client.js"></script>
             </div>
         );
     }
 }
+
+module.exports = App;

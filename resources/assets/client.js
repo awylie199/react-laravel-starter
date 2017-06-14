@@ -16,7 +16,7 @@ import 'styles';
 const {parse} =  Serialize.immutable(Immutable);
 
 // Register Service Worker for Progressive Web App - Access Webpack Assets
-if ('serviceWorker' in navigator && process.env.NODE_ENV === 'prod') {
+if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
     runtime.register();
 }
 
@@ -63,7 +63,7 @@ render(
 
 if (module.hot) {
     module.hot.accept('./containers', () => {
-        const NextContainer = require('./containers').default;
+        const NextContainer = require('./containers');
 
         render(
             <Provider store={store}>

@@ -12,6 +12,7 @@
         "transform-class-properties",
         "react-hot-loader/babel",
         "transform-html-import-to-string",
-        "transform-runtime"
+        "transform-runtime",
+        "add-module-exports"
     ]
 }

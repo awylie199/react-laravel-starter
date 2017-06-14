@@ -2,22 +2,20 @@
 
 A React Laravel Starter Project.
 
-This is a **Work in Progress**.
-
 Inspired by [React Laravel](https://github.com/talyssonoc/react-laravel) and [Go Starter Kit](https://github.com/olebedev/go-starter-kit).
 
 ## Features
 
 [*] Laravel 5.4
 [*] React with Redux
+[*] Server Side Rendering (with PHP V8JS)
+[*] Hot Module Reloading
 [*] React Router v4 and Redux Router v3
 [*] Styled SCSS Components
 [*] ImmutableJS
-[*] Server Side Rendering (with PHP V8JS)
-[*] Hot Module Reloading
 [*] Eslint and Stylelint
 [*] BDD Testing via Mocha, Chai, Enzyme and Sinon
-[*] Service Worker Support (for Progressive Apps)
+[*] Service Worker Support (for Progressive Web Apps)
 [*] Yarn
 
 ## V8 and PHPV8 Setup
@@ -66,6 +64,26 @@ return [
     'source'            => base_path('node_modules/react/dist/react.js'),
     'dom-source'        => base_path('node_modules/react-dom/dist/react-dom.js'),
     'dom-server-source' => base_path('node_modules/react-dom/dist/react-dom-server.js'),
-    'components'        => public_path('bundle.js')
+    'components'        => public_path('bundle.server.js')
 ];
 ```
+
+## Hot Module Replacement
+
+To get the hot module replacement to work with the webapp, you may need to install a [forwarder plugin](https://github.com/mhallin/vagrant-notify-forwarder).
+
+Also update your resources/webpack.client.js file to match your app URL:
+
+```js
+host = process.env.HOST || 'rls.local'
+```
+
+## Limitations
+
+Currently the React components are rendered after the Laravel route has been matched.
+
+Consequently, the Router *context* cannot be used to redirect the app on the server.
+
+Therefore you should avoid using 'Redirect' within React Router.
+
+Alternatively you could rely on Laravel to handle redirects, and create separate routes and views for use cases such as [authenticated pages](https://reacttraining.com/react-router/web/example/auth-workflow).

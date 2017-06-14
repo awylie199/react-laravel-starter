@@ -7,12 +7,10 @@ export class Home extends Component {
     static propTypes = {
         getGeolocation: PropTypes.func.isRequired
     }
-    componentWillMount() {
+    componentDidMount() {
         let {getGeolocation} = this.props;
 
-        if (typeof window !== 'undefined') {
-            getGeolocation();
-        }
+        getGeolocation();
     }
     render() {
         return (

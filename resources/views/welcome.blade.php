@@ -1,4 +1,7 @@
-<?php $currentUrl = Request::url(); ?>
+<?php
+$currentUrl = Request::url();
+$path = parse_url($currentUrl, PHP_URL_PATH) ?? '/';
+?>
 
 <!doctype html>
 <html lang="en" dir="ltr">
@@ -21,6 +24,6 @@
         <link rel='manifest' href='/manifest.json' />
     </head>
     <body>
-        @react_component('RLS', ['url' => $currentUrl], ['tag' => 'main','prerender' => true])
+        @react_component('RLS', ['url' => $path], ['tag' => 'main','prerender' => true])
     </body>
 </html>
