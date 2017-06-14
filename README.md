@@ -6,17 +6,17 @@ Inspired by [React Laravel](https://github.com/talyssonoc/react-laravel) and [Go
 
 ## Features
 
-[x] Laravel 5.4
-[x] React with Redux
-[x] Server Side Rendering (with PHP V8JS)
-[x] Hot Module Reloading
-[x] React Router v4 and Redux Router v3
-[x] Styled SCSS Components
-[x] ImmutableJS
-[x] Eslint and Stylelint
-[x] BDD Testing via Mocha, Chai, Enzyme and Sinon
-[x] Service Worker Support (for Progressive Web Apps)
-[x] Yarn
+- [x] Laravel 5.4
+- [x] React with Redux
+- [x] Server Side Rendering (with PHP V8JS)
+- [x] Hot Module Reloading
+- [x] React Router v4 and Redux Router v3
+- [x] Styled SCSS Components
+- [x] ImmutableJS
+- [x] Eslint and Stylelint
+- [x] BDD Testing via Mocha, Chai, Enzyme and Sinon
+- [x] Service Worker Support (for Progressive Web Apps)
+- [x] Yarn
 
 ## V8 and PHPV8 Setup
 
