@@ -4,6 +4,13 @@ A React Laravel Starter Project.
 
 Inspired by [React Laravel](https://github.com/talyssonoc/react-laravel) and [Go Starter Kit](https://github.com/olebedev/go-starter-kit).
 
+After cloning the project remember to create a **.env** file and **generate** a key:
+
+```shell
+cp .env.example .env
+php artisan key:generate
+```
+
 ## Features
 
 - [x] Laravel 5.4
