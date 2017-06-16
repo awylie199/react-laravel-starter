@@ -11,7 +11,6 @@ import runtime from 'serviceworker-webpack-plugin/lib/runtime';
 import {AppContainer} from 'react-hot-loader';
 import setupStore from './store';
 import Container from './containers';
-import 'styles';
 
 const {parse} =  Serialize.immutable(Immutable);
 

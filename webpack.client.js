@@ -158,8 +158,7 @@ module.exports = {
         ],
         extensions: ['.js', '.jsx', '.scss', '.json', '.css'],
         alias: {
-            react_ujs: path.join(__dirname, 'public/vendor/react-laravel/react_ujs.js'),
-            styles: path.join(__dirname, 'resources/assets/index.scss')
+            react_ujs: path.join(__dirname, 'public/vendor/react-laravel/react_ujs.js')
         }
     },
     entry: [
