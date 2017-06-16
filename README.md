@@ -53,6 +53,27 @@ Check your installed v8 extension is enabled:
 php --ri v8js
 ```
 
+## Build, Run & Test
+
+Run in the project root:
+
+```shell
+composer install
+yarn install
+
+# Dev:
+npm run start:dev
+
+# Prod:
+npm run build
+
+# Test:
+npm run test
+
+# Lint:
+npm run lint
+```
+
 ## React Laravel Config
 
 This project depends on [React Laravel](https://github.com/talyssonoc/react-laravel).
@@ -70,7 +91,7 @@ return [
 
 ## Hot Module Replacement
 
-To get the hot module replacement to work with the webapp, you may need to install a [forwarder plugin](https://github.com/mhallin/vagrant-notify-forwarder).
+To get the hot module replacement to work with the webapp, you may need to install a [forwarder plugin](https://github.com/mhallin/vagrant-notify-forwarder) if you're using Homestead.
 
 Also update your resources/webpack.client.js file to match your app URL:
 
