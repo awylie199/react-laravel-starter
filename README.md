@@ -53,6 +53,27 @@ Check your installed v8 extension is enabled:
 php --ri v8js
 ```
 
+## React Laravel Config
+
+This project depends on [React Laravel](https://github.com/talyssonoc/react-laravel).
+
+Republish the React Laravel config:
+
+```shell
+php artisan vendor:publish
+```
+
+Check your config/react.php file still looks like:
+
+```php
+return [
+    'source'            => base_path('node_modules/react/dist/react.js'),
+    'dom-source'        => base_path('node_modules/react-dom/dist/react-dom.js'),
+    'dom-server-source' => base_path('node_modules/react-dom/dist/react-dom-server.js'),
+    'components'        => public_path('bundle.server.js')
+];
+```
+
 ## Build, Run & Test
 
 Run in the project root:
@@ -72,21 +93,6 @@ npm run test
 
 # Lint:
 npm run lint
-```
-
-## React Laravel Config
-
-This project depends on [React Laravel](https://github.com/talyssonoc/react-laravel).
-
-Your config/react.php file should look like:
-
-```php
-return [
-    'source'            => base_path('node_modules/react/dist/react.js'),
-    'dom-source'        => base_path('node_modules/react-dom/dist/react-dom.js'),
-    'dom-server-source' => base_path('node_modules/react-dom/dist/react-dom-server.js'),
-    'components'        => public_path('bundle.server.js')
-];
 ```
 
 ## Hot Module Replacement
